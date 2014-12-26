@@ -1,0 +1,23 @@
+<div ng-controller="AdminCtrl">
+  <table>
+    <tr ng-repeat="category in categories">
+      <td>
+        <a href="#" ng-show="!isRename(category)">{{category.Name}}</a>
+        <input type="text" ng-model="category.Name" ng-show="isRename(category)"/>
+      </td>
+      <td>
+        <a ng-click="showRename(category)" ng-show="!isRename(category)" class="btn btn-sm">Rename</a>
+        <a ng-click="rename(category)" type="submit" ng-show="isRename(category)" class="btn btn-warning">Rename</a>
+        <a ng-click="showRename(category)" ng-show="isRename(category)" class="btn btn-sm">Cancel</a>
+      </td>
+      <td>
+        <a ng-click="deleteCategory(category)" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+  </table>
+
+  <form role="form" ng-submit="addCategory()">
+    <input type="text" placeholder="New Category" ng-model="newCategory.Name"/>
+    <button type="submit" class="btn btn-default">Add Category</button>
+  </form>
+</div>
