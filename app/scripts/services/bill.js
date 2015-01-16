@@ -1,10 +1,13 @@
-app.factory('Bill', function ($firebase, FIREBASE_URL) {
+'use strict';
+
+app.factory('Bill', function (FIREBASE_URL, $firebase) {
   var ref = new Firebase(FIREBASE_URL);
-  var bills = $firebase(ref.child('bills')).$asArray();
+  var draftBills = $firebase(ref.child('bills-draft')).$asArray();
+  var approvedBills = $firebase(ref.child('bills-approved')).$asArray();
 
   var Bill = {
     create: function (bill) {
-      return bills.$add(bill);
+      return draftBills.$add(bill);
     }
   };
 

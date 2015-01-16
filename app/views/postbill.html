@@ -1,0 +1,23 @@
+<div ng-controller="PostBillCtrl">
+  <form ng-submit="submitBill()" role="form">
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <select id="category" class="form-control"
+              ng-options="category.$id as category.Name for category in categories"
+              ng-model="bill.Category">
+
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input id="title" type="text" ng-model="bill.Title" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+      <label for="desc">Description:</label>
+      <textarea id="desc" ng-model="bill.Description" class="form-control" rows="7"/>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Suggest</button>
+  </form>
+</div>
